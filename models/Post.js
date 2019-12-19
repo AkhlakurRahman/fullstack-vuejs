@@ -40,6 +40,8 @@ const PostSchema = new Schema({
 			}
 		}
 	],
+	// path === createdBy
+	// ref ('User) === Model
 	createdBy: {
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
