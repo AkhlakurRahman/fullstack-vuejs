@@ -9,11 +9,14 @@
 			</div>
 			<div class="nav__link--items">
 				<router-link to="/">Gallery</router-link>
-				<router-link to="/sign-in">Sign In</router-link>
-				<router-link to="/sign-up">Sign Up</router-link>
+				<router-link to="/signin">Sign In</router-link>
+				<router-link to="/signup">Sign Up</router-link>
 			</div>
 		</div>
-		<router-view />
+
+		<main>
+			<router-view />
+		</main>
 	</div>
 </template>
 
