@@ -1,46 +1,46 @@
 module.exports = {
-	Query: {
-		getAllPosts: async (_, args, { Post }) => {
-			const posts = await Post.find({})
-				.sort({ createdAt: 'desc' })
-				.populate({
-					path: 'createdBy',
-					model: 'User'
-				});
-			return posts;
-		}
-	},
+  Query: {
+    getAllPhotos: async (_, args, { Photo }) => {
+      const posts = await Photo.find({})
+        .sort({ createdAt: 'desc' })
+        .populate({
+          path: 'createdBy',
+          model: 'User'
+        });
+      return posts;
+    }
+  },
 
-	Mutation: {
-		signupUser: async (_, { username, email, password }, { User }) => {
-			const existingUser = await User.findOne({ username });
-			if (existingUser) {
-				throw new Error('User already exists');
-			}
+  Mutation: {
+    signupUser: async (_, { username, email, password }, { User }) => {
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+        throw new Error('User already exists');
+      }
 
-			const newUser = await new User({
-				username,
-				email,
-				password
-			}).save();
+      const newUser = await new User({
+        username,
+        email,
+        password
+      }).save();
 
-			return newUser;
-		},
+      return newUser;
+    },
 
-		addPost: async (
-			_,
-			{ title, imageUrl, categories, description, createdBy },
-			{ Post }
-		) => {
-			const newPost = await new Post({
-				title,
-				imageUrl,
-				categories,
-				description,
-				createdBy
-			}).save();
+    addPhoto: async (
+      _,
+      { title, imageUrl, categories, description, createdBy },
+      { Photo }
+    ) => {
+      const newPhoto = await new Photo({
+        title,
+        imageUrl,
+        categories,
+        description,
+        createdBy
+      }).save();
 
-			return newPost;
-		}
-	}
+      return newPhoto;
+    }
+  }
 };
