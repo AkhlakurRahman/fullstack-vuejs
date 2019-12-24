@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .guradian {
   background-color: rgb(240, 233, 233);
   border: 1px solid #c5c2c2;
